@@ -4,7 +4,7 @@
 
 [![Website](https://img.shields.io/badge/Official-cdbc.io-success?style=flat-square)](https://cdbc.io/api)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
-[![Website](https://img.shields.io/badge/Official-cdbc.io-success?style=flat-square)](https://cdbc.io/api)
+[![Website](https://img.shields.io/badge/Official-cdbc-api.vercel.app-success?style=flat-square)](https://cdbc-api.vercel.app)
 
 *Robust, scalable, and secure REST API for the Cloudbit Classic ecosystem.*
 
