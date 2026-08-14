@@ -80,8 +80,8 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 | Endpoint | Method | Description |
 | :--- | :---: | :--- |
-| `/api/cdbc/total-supply` | `GET` | Plain text total supply. |
-| `/address/{address}` | `GET` | Retrieves the balance and details of a specific wallet address. |
+| `/api/cdbc/total-supply` | `GET` | Plain-text total supply. |
+| `/api/cdbc/circulating-supply` | `GET` | Plain-text circulating supply (total minus burned and active locks). |
 | `/tx/{hash}` | `GET` | Fetches details of a specific transaction by its hash. |
 | `/tx/send` | `POST` | Broadcasts a signed transaction to the network. |
 
