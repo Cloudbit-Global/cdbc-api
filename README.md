@@ -130,6 +130,10 @@ Please make sure to update tests as appropriate.
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
+
 <div align="center">
-  <sub>Built with ❤️ by the <a href="https://github.com/Cloudbit-Global">Cloudbit Team</a></sub>
+  <b>Cloudbit Classic ($CDBC)</b><br>
+  <i>Empowering the digital economy.</i><br><br>
+  
+  [Website](https://cdbc.io) • [API Documentation](https://cdbc.io/api) • [Telegram](https://t.me/cloudbit)
 </div>
