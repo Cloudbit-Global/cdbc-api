@@ -2,7 +2,7 @@
 
 # 🌐 Cloudbit Classic (CDBC) API
 
-[![GitHub Release](https://img.shields.io/github/v/release/Cloudbit-Global/cdbc-api?style=flat-square&color=007EC6)](https://cdbc-api.vercel.app/)
+[![GitHub Release](https://img.shields.io/github/v/https://cdbc-api.vercel.app?style=flat-square&color=007EC6)](https://cdbc-api.vercel.app/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![Website](https://img.shields.io/badge/Official-cdbc.io-success?style=flat-square)](https://cdbc.io/api)
 
