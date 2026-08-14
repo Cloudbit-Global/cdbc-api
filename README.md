@@ -85,7 +85,7 @@ Follow these instructions to get a copy of the project up and running on your lo
 | `/tx/{hash}` | `GET` | Fetches details of a specific transaction by its hash. |
 | `/tx/send` | `POST` | Broadcasts a signed transaction to the network. |
 
-*For full API documentation, please visit [docs.cdbc.io](https://docs.cdbc.io).*
+*For full API documentation, please visit [cdbc-api.vercel.app](https://cdbc-api.vercel.app).*
 
 ## 💡 Usage Examples
 
