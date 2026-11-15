@@ -1,0 +1,71 @@
+openapi: 3.1.0
+info:
+  title: Cloudbit Classic ($CDBC) Public API
+  version: 1.0.0
+  description: Official public supply and ecosystem metadata endpoints for Cloudbit Classic ($CDBC) on BNB Smart Chain and multichain bridge networks.
+  contact:
+    name: Cloudbit Classic
+    url: https://cdbc.io
+servers:
+  - url: https://cdbc.io/api
+    description: Primary Production API (cdbc.io)
+  - url: https://cloudbitex.com/api
+    description: Exchange Portal Mirror API (cloudbitex.com)
+paths:
+  /supply.json:
+    get:
+      summary: Get complete CDBC token supply and metadata
+      operationId: getSupplyInfo
+      responses:
+        "200":
+          description: Full supply breakdown including fixed maximum supply, circulating supply, and primary BNB Smart Chain contract.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  symbol:
+                    type: string
+                    example: CDBC
+                  total_supply:
+                    type: string
+                    example: "200000000"
+                  circulating_supply:
+                    type: string
+                    example: "200000000"
+                  primary_network:
+                    type: string
+                    example: BNB Smart Chain
+                  contract_address:
+                    type: string
+                    example: "0xaf8b1b1bb4a47f537932968C7DE6E251dd50C6a9"
+  /total.json:
+    get:
+      summary: Get fixed total supply of CDBC
+      operationId: getTotalSupply
+      responses:
+        "200":
+          description: Returns fixed total supply (200,000,000 CDBC) for market data aggregators.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total_supply:
+                    type: string
+                    example: "200000000"
+  /circulating.json:
+    get:
+      summary: Get circulating supply of CDBC
+      operationId: getCirculatingSupply
+      responses:
+        "200":
+          description: Returns current circulating supply of CDBC for CoinMarketCap, CoinGecko, and exchange trackers.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  circulating_supply:
+                    type: string
+                    example: "200000000"
