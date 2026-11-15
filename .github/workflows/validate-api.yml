@@ -1,0 +1,35 @@
+name: Validate CDBC Public API Endpoints
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  validate-json:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Validate CDBC JSON Endpoints & Tokenomics
+        run: |
+          python3 - << "EOF"
+          import json
+
+          with open("supply.json", "r", encoding="utf-8") as f:
+              supply = json.load(f)
+          with open("total.json", "r", encoding="utf-8") as f:
+              total = json.load(f)
+          with open("circulating.json", "r", encoding="utf-8") as f:
+              circulating = json.load(f)
+
+          assert supply["symbol"] == "CDBC", "Invalid symbol"
+          assert supply["total_supply"] == "200000000", "Invalid total_supply in supply.json"
+          assert supply["circulating_supply"] == "200000000", "Invalid circulating_supply in supply.json"
+          assert supply["contract_address"] == "0xaf8b1b1bb4a47f537932968C7DE6E251dd50C6a9", "Invalid BSC main contract"
+          assert total["total_supply"] == "200000000", "Invalid total.json"
+          assert circulating["circulating_supply"] == "200000000", "Invalid circulating.json"
+          print("ALL CDBC API ENDPOINTS VALIDATED SUCCESSFULLY")
+          EOF
