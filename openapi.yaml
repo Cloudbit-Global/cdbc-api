@@ -1,18 +1,16 @@
 openapi: 3.1.0
 info:
   title: Cloudbit Classic ($CDBC) Public API
-  version: 1.0.0
+  version: 2.0.0
   description: Official public supply and ecosystem metadata endpoints for Cloudbit Classic ($CDBC) on BNB Smart Chain and multichain bridge networks.
   contact:
     name: Cloudbit Classic
     url: https://cdbc.io
 servers:
-  - url: https://cdbc.io/api
-    description: Primary Production API (cdbc.io)
-  - url: https://cloudbitex.com/api
-    description: Exchange Portal Mirror API (cloudbitex.com)
+  - url: https://cdbc-api.vercel.app/api/cdbc
+    description: Production Serverless API (Vercel)
 paths:
-  /supply.json:
+  /supply:
     get:
       summary: Get complete CDBC token supply and metadata
       operationId: getSupplyInfo
@@ -39,7 +37,7 @@ paths:
                   contract_address:
                     type: string
                     example: "0xaf8b1b1bb4a47f537932968C7DE6E251dd50C6a9"
-  /total.json:
+  /total-supply:
     get:
       summary: Get fixed total supply of CDBC
       operationId: getTotalSupply
@@ -49,12 +47,9 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  total_supply:
-                    type: string
-                    example: "200000000"
-  /circulating.json:
+                type: string
+                example: "200000000"
+  /circulating-supply:
     get:
       summary: Get circulating supply of CDBC
       operationId: getCirculatingSupply
@@ -64,8 +59,5 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  circulating_supply:
-                    type: string
-                    example: "200000000"
+                type: string
+                example: "200000000"
