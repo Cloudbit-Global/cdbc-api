@@ -21,7 +21,7 @@
 | :--- | :--- | :--- | :--- |
 | `https://cdbc-api.vercel.app/api/cdbc/supply` | `GET` | Full tokenomics & primary BSC contract metadata | `200000000` (`CDBC`) |
 | `https://cdbc-api.vercel.app/api/cdbc/total-supply` | `GET` | Fixed maximum & total supply endpoint | `200000000` |
-| `https://cdbc-api.vercel.app/api/cdbc/circulating-supply` | `GET` | Circulating supply endpoint for CMC & CoinGecko | `200000000` |
+| `https://cdbc-api.vercel.app/api/cdbc/circulating-supply` | `GET` | Circulating supply endpoint for CMC & CoinGecko | `100000000` |
 
 ### Specifications &amp; Architecture
 * **Deployment Infrastructure:** Serverless Edge API hosted on Vercel (`https://cdbc-api.vercel.app`).
