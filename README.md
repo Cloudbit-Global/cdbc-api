@@ -1,139 +1,38 @@
 <div align="center">
-
-# 🌐 Cloudbit Classic (CDBC) API
-
-[![Website](https://img.shields.io/badge/Official-cdbc.io-success?style=flat-square)](https://cdbc.io/api)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
-[![Website](https://img.shields.io/badge/Official-cdbc.io-success?style=flat-square)](https://cdbc-api.vercel.app)
-
-*Robust, scalable, and secure REST API for the Cloudbit Classic ecosystem.*
-
+  <a href="https://cdbc.io/api">
+    <img src="https://raw.githubusercontent.com/Cloudbit-Global/core/main/assets/cdbc-logo-256.png" alt="Cloudbit Classic API Logo" width="135" height="135" />
+  </a>
+  <h1>Cloudbit Classic Public API (<code>cdbc.io/api</code>)</h1>
+  <p><strong>Real-Time Supply, Circulating Metrics &amp; OpenAPI 3.1 Specification for Market Data Aggregators</strong></p>
+  <p>
+    <a href="https://cdbc.io/api/supply.json">supply.json</a> &bull;
+    <a href="https://cdbc.io/api/total.json">total.json</a> &bull;
+    <a href="https://cdbc.io/api/circulating.json">circulating.json</a> &bull;
+    <a href="https://cdbc.io">cdbc.io</a> &bull;
+    <a href="https://cloudbitex.com">cloudbitex.com</a>
+  </p>
 </div>
 
 ---
 
-## 🚀 Introduction
+## Production Endpoints
 
-Welcome to the official repository for the **Cloudbit Classic (CDBC) API**. This API is designed to provide developers, exchanges, and community members with a powerful interface to interact seamlessly with the CDBC blockchain. Whether you are building a wallet, integrating a payment gateway, or analyzing blockchain data, the CDBC API offers the reliable endpoints you need.
+| Endpoint | Method | Description | Expected Output |
+| :--- | :--- | :--- | :--- |
+| `https://cdbc.io/api/supply.json` | `GET` | Full tokenomics & primary BSC contract metadata | `200000000` (`CDBC`) |
+| `https://cdbc.io/api/total.json` | `GET` | Fixed maximum & total supply endpoint | `{"total_supply": "200000000"}` |
+| `https://cdbc.io/api/circulating.json` | `GET` | Circulating supply endpoint for CMC & CoinGecko | `{"circulating_supply": "200000000"}` |
 
-## ✨ Features
-
-- **⚡ High Performance:** Optimized for low latency and high throughput.
-- **🔒 Secure:** Industry-standard security practices and rate limiting.
-- **📊 Comprehensive Data:** Access transaction histories, wallet balances, and network statistics.
-- **🛠 Easy Integration:** RESTful architecture with standard JSON responses.
-
-## 📖 Table of Contents
-
-- [Getting Started](#-getting-started)
-- [Prerequisites](#-prerequisites)
-- [Installation](#-installation)
-- [API Endpoints](#-api-endpoints)
-- [Usage Examples](#-usage-examples)
-- [Contributing](#-contributing)
-- [License](#-license)
-
-## 🏁 Getting Started
-
-Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
-
-### 📋 Prerequisites
-
-- [Node.js](https://nodejs.org/) (v16.x or higher)
-- [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/)
-- A running Cloudbit Classic node (or access to the public RPC)
-
-### 💻 Installation
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/Cloudbit-Global/cdbc-api.git
-   cd cdbc-api
-   ```
-
-2. **Install dependencies:**
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
-
-3. **Configure environment variables:**
-   Create a `.env` file in the root directory and add your configurations:
-   ```env
-   PORT=3000
-   RPC_URL=https://rpc.cdbc.io
-   API_KEY_SECRET=your_secret_key_here
-   ```
-
-4. **Start the server:**
-   ```bash
-   npm run start
-   # or for development
-   npm run dev
-   ```
-
-## 📡 API Endpoints
-
-### Base URL
-`https://cdbc.io/api`
-
-| Endpoint | Method | Description |
-| :--- | :---: | :--- |
-| `/api/cdbc/total-supply` | `GET` | Plain-text total supply. |
-| `/api/cdbc/circulating-supply` | `GET` | Plain-text circulating supply (total minus burned and active locks). |
-| `/api/cdbc/supply` | `GET` | Full JSON breakdown including burned, locked, and individual PinkLock entries. |
-| `/tx/send` | `POST` | Broadcasts a signed transaction to the network. |
-
-*For full API documentation, please visit [cdbc-api.vercel.app](https://cdbc-api.vercel.app).*
-
-## 💡 Usage Examples
-
-### Fetch Address Balance (cURL)
-
-```bash
-curl -X GET "https://api.cdbc.io/v1/address/0xYourWalletAddress" \
-     -H "Accept: application/json"
-```
-
-### Broadcast a Transaction (Node.js/Axios)
-
-```javascript
-const axios = require('axios');
-
-async function sendTx(signedTx) {
-  try {
-    const response = await axios.post('https://api.cdbc.io/v1/tx/send', {
-      rawTransaction: signedTx
-    });
-    console.log('Transaction successful:', response.data.txHash);
-  } catch (error) {
-    console.error('Error broadcasting transaction:', error);
-  }
-}
-```
-
-## 🤝 Contributing
-
-We welcome contributions from the community! If you'd like to help improve the CDBC API, please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/AmazingFeature`).
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
-4. Push to the branch (`git push origin feature/AmazingFeature`).
-5. Open a Pull Request.
-
-Please make sure to update tests as appropriate.
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](https://opensource.org/license/MIT)) file for details.
+### Specifications &amp; Hosting
+* **OpenAPI 3.1 Definition:** [`openapi.yaml`](https://github.com/Cloudbit-Global/cdbc-api/blob/main/openapi.yaml)
+* **IONOS CORS &amp; UTF-8 Config:** [`.htaccess`](https://github.com/Cloudbit-Global/cdbc-api/blob/main/.htaccess) (`Access-Control-Allow-Origin: *`, `application/json; charset=utf-8`)
+* **Automated CI Validation:** Every push to `main` is verified by `.github/workflows/validate-api.yml`.
 
 ---
 
-<div align="center">
-  <b>Cloudbit Classic ($CDBC)</b><br>
-  <i>Empowering the digital economy.</i><br><br>
-  
-  [Website](https://cdbc.io) • [API Documentation](https://cdbc.io/api) • [Telegram](https://t.me/cloudbit)
-</div>
+## Official Cloudbit-Global Ecosystem Repositories
+* **[`Cloudbit-Global/core`](https://github.com/Cloudbit-Global/core)** – Core architecture, multichain contract registry, verified ABIs, and brand assets.
+* **[`Cloudbit-Global/cdbc-dex`](https://github.com/Cloudbit-Global/cdbc-dex)** – Official CloudbitDEX multichain decentralized exchange and listing portal (`cloudbitex.com`).
+* **[`Cloudbit-Global/cdbc-app`](https://github.com/Cloudbit-Global/cdbc-app)** – Official main project portal and Android APK (`cdbc.io`).
+* **[`Cloudbit-Global/cdbc-api`](https://github.com/Cloudbit-Global/cdbc-api)** – Public supply endpoints and OpenAPI 3.1 specifications (`cdbc.io/api`).
+* **[`Cloudbit-Global/cdbc-bot`](https://github.com/Cloudbit-Global/cdbc-bot)** – Official Telegram GameFi & Tap2Earn Bot (`@cloudbit_ai_bot` / `cloudbit.to`).
